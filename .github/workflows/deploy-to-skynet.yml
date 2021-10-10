@@ -1,0 +1,22 @@
+name: Deploy to Skynet
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - name: "Deploy to Skynet"
+        uses: SkynetLabs/deploy-to-skynet-action@v2
+        with:
+          upload-dir: "."
+          github-token: ${{ secrets.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 }}
+          registry-seed: ${{ secrets.IWILLNOTTELLYOU@ || '' }}
